@@ -39,7 +39,7 @@ const Search = () => {
             )}
           </div>
         </form>
-        <h3>requests : {requests} / 60</h3>
+        <h3><font color="white">requests : {requests} / 60</font></h3>
       </Wrapper>
     </section>
   );
@@ -79,17 +79,17 @@ const Wrapper = styled.div`
     }
     button {
       border-radius: 5px;
-      border-color: transparent;
+      border-color: black;
       padding: 0.25rem 0.5rem;
       text-transform: capitalize;
       letter-spacing: var(--spacing);
-      background: var(--clr-primary-5);
+      background: black;
       color: var(--clr-white);
       transition: var(--transition);
       cursor: pointer;
       &:hover {
-        background: var(--clr-primary-8);
-        color: var(--clr-primary-1);
+        background: white;
+        color: black;
       }
     }
 
