@@ -18,7 +18,7 @@ ReactDOM.render(
         <App />
       </GithubProvider>
     </Auth0Provider>
-  </React.StrictMode>,
+  </React.StrictMode>,  
   document.getElementById('root')
 );
 

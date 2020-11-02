@@ -1,56 +1,50 @@
 import React from 'react';
 import { GithubContext } from '../context/context';
 import styled from 'styled-components';
-import './Card1.css';
 
-const Followers = () => {
-  const { followers } = React.useContext(GithubContext);
-
-  return (
-    <Wrapper className="example" >
-      <div className='followers'>
-        {followers.map((follower, index) => {
-          const { avatar_url: img, html_url, login } = follower;
-          return (
-            <article key={index}>
-              <img src={img} alt={login} />
-              <div>
-                <h4><font color="#BDC3C7">{login}</font></h4>
-                <a href={html_url}>{html_url}</a>
-              </div>
-            </article>
-          );
-        })}
-      </div>
-    </Wrapper>
-  );
+const ShowRepos = () => {
+  const {reposavail} = React.useContext(GithubContext)
+  return <Wrapper>
+    <div className='followers'>
+      {reposavail.map((reposa)=>{
+        const {name}=reposa;
+        console.log('name');
+        console.log(name);
+        return <article>
+          <div> 
+              <h4>name:{name}</h4>
+              
+          </div>
+        </article>
+      })}
+    </div>
+  </Wrapper>;
 };
 
 const Wrapper = styled.article`
-  background: #161625;
+  background: var(--clr-white);
   border-top-right-radius: var(--radius);
   border-bottom-left-radius: var(--radius);
   border-bottom-right-radius: var(--radius);
   position: relative;
 
   &::before {
-    content: ' Followers';
+    content: ' All_Repositories';
     position: absolute;
     top: 0;
     left: 0;
     transform: translateY(-100%);
-    background: rgba(0, 123, 255, 0.125);
-    color:#28a745;
+    background: var(--clr-white);
+    color: var(--clr-grey-5);
     border-top-right-radius: var(--radius);
     border-top-left-radius: var(--radius);
     text-transform: capitalize;
     padding: 0.5rem 1rem 0 1rem;
     letter-spacing: var(--spacing);
-    font-size: 2rem;
+    font-size: 1rem;
   }
   .followers {
-    overflow: scroll ;
-   
+    overflow: scroll;
     height: 260px;
     display: grid;
     grid-template-rows: repeat(auto-fill, minmax(45px, 1fr));
@@ -79,4 +73,4 @@ const Wrapper = styled.article`
     }
   }
 `;
-export default Followers;
+export default ShowRepos;

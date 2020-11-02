@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useAuth0 } from '@auth0/auth0-react';
 
+
 const Navbar = () => {
   const {
     isAuthenticated,
@@ -13,6 +14,7 @@ const Navbar = () => {
   const isUser = isAuthenticated && user;
 
   return (
+    <div>
     <Wrapper>
       {isUser && user.picture && <img src={user.picture} alt={user.name} />}
       {isUser && user.name && (
@@ -31,9 +33,11 @@ const Navbar = () => {
       ) : (
         <button onClick={loginWithRedirect}>login</button>
       )}
-    </Wrapper>
+    </Wrapper> 
+    </div>
   );
 };
+
 
 
 const Wrapper = styled.nav`

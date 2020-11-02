@@ -14,7 +14,7 @@ const User = () => {
 };
 
 const Wrapper = styled.div`
-  padding-top: 2rem;
+  padding-top: 4rem;
   display: grid;
   gap: 3rem 2rem;
   @media (min-width: 992px) {

@@ -4,34 +4,35 @@ import styled from 'styled-components';
 import { GoRepo, GoGist } from 'react-icons/go';
 import { FiUsers, FiUserPlus } from 'react-icons/fi';
 
+
 const UserInfo = () => {
   const {githubUser}=React.useContext(GithubContext);
   const {public_repos, followers, following, public_gists}=githubUser;
  const items=[{
       id: 1,
       icon: <GoRepo className='icon' />,
-      label: 'repos',
+      label: <font color="#da4a91">repos </font>,
       value: public_repos,
       color: 'pink',
     },
     {
       id: 2,
       icon: <FiUsers className='icon' />,
-      label: 'followers',
+      label:  <font color="#76D7C4 ">followers</font>,
       value: followers,
       color: 'green',
     },
     {
       id: 3,
       icon: <FiUserPlus className='icon' />,
-      label: 'following',
+      label: <font color=" #5d55fa">following</font>,
       value: following,
       color: 'purple',
     },
     {
       id: 4,
       icon: <GoGist className='icon' />,
-      label: 'gists',
+      label: <font color="#f0b429">gists</font>,
       value: public_gists,
       color: 'yellow',
     }, ]
@@ -56,7 +57,7 @@ const Item = ({ icon, label, value, color }) => {
     <article className='item'>
       <span className={color}>{icon}</span>
       <div>
-        <h3>{value}</h3>
+        <h3><font color="white">{value}</font></h3>
         <p>{label}</p>
       </div>
     </article>
@@ -73,7 +74,7 @@ const Wrapper = styled.section`
   .item {
     border-radius: var(--radius);
     padding: 1rem 2rem;
-    background: var(--clr-white);
+    background:rgba(0, 123, 255, 0.125);
     display: grid;
     grid-template-columns: auto 1fr;
     column-gap: 3rem;

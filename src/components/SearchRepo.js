@@ -2,49 +2,46 @@ import React from 'react';
 import styled from 'styled-components';
 import { MdSearch } from 'react-icons/md';
 import { GithubContext } from '../context/context';
-const Search = () => {
-  const [user, setUser] = React.useState('');
-  const { requests, error, searchGithubUser, isLoading } = React.useContext(
-    GithubContext
-  );
-  // get things from global context
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (user) {
-      // more logic coming up soon
-      searchGithubUser(user);
-      //optional
-      // setUser('');
-    }
-  };
-  return (
-    <section className='section'>
-      <Wrapper className='section-center'>
-        {error.show && (
-          <ErrorWrapper>
-            <p>{error.msg}</p>
-          </ErrorWrapper>
-        )}
-        <form onSubmit={handleSubmit}>
-          <div className='form-control'>
-            <MdSearch />
-            <input
-              type='text'
-              placeholder='enter github user'
-              value={user}
-              onChange={(e) => setUser(e.target.value)}
-            />
-            {requests > 0 && !isLoading && (
-              <button type='submit'>search</button>
-            )}
-          </div>
-        </form>
-        <h3><font color="white">requests : {requests} / 60</font></h3>
-      </Wrapper>
-    </section>
-  );
-};
+import Repos_data from '../components/Repos_data'
 
+const SearchRepo = () => {
+
+  const [user,setUser]=React.useState('')
+  const [repo,setRepo]=React.useState('')
+  
+  const {requests,error,searchContributionsRepos} = React.useContext(GithubContext)
+
+  console.log(requests);
+
+  const handleSubmit = (e)=>{
+    e.preventDefault()
+
+    if(user && repo)
+    {
+      searchContributionsRepos(user,repo)
+    }
+    console.log(user);
+  };
+
+
+  return <section className='section'>
+    <Wrapper className='section-center'>
+      {error.show && <ErrorWrapper>
+      <p>{error.msg}</p>
+        </ErrorWrapper>}
+      <form onSubmit={handleSubmit}>
+         <div className='form-control'>
+           <MdSearch/>
+           <input type='text' placeholder='enter guthub user' value={user} onChange={(e)=>setUser(e.target.value)}/>
+           <input type='text' placeholder='enter guthub repo' value={repo} onChange={(e)=>setRepo(e.target.value)}/>
+           {requests>0 && <button type='submit'>Search</button>}
+        </div> 
+      </form>  
+    </Wrapper>
+    <br/><br/><br/>
+    <Repos_data/>
+  </section>;
+};
 
 const Wrapper = styled.div`
   position: relative;
@@ -58,41 +55,38 @@ const Wrapper = styled.div`
     }
   }
   .form-control {
-    background: #1e1e30!important;
+    background: var(--clr-white);
     display: grid;
     align-items: center;
     grid-template-columns: auto 1fr auto;
     column-gap: 0.5rem;
-    
+    border-radius: 5px;
     padding: 0.5rem;
     input {
+      border-color: transparent;
+      outline-color: var(--clr-grey-10);
       letter-spacing: var(--spacing);
-     border-color: #1e1e30!important;
-      background-color: white;
+      color: var(--clr-grey-3);
       padding: 0.25rem 0.5rem;
     }
-    input[type=text] {
- 
-  color:#1e1e30!important ;
-}
     input::placeholder {
-     
+      color: var(--clr-grey-3);
       text-transform: capitalize;
       letter-spacing: var(--spacing);
     }
     button {
       border-radius: 5px;
-      border-color:rgba(0, 123, 255, 0.125);
+      border-color: transparent;
       padding: 0.25rem 0.5rem;
       text-transform: capitalize;
       letter-spacing: var(--spacing);
-      background: rgba(0, 123, 255, 0.125);
+      background: var(--clr-primary-5);
       color: var(--clr-white);
       transition: var(--transition);
       cursor: pointer;
       &:hover {
-        background: white;
-        color: black;
+        background: var(--clr-primary-8);
+        color: var(--clr-primary-1);
       }
     }
 
@@ -114,7 +108,7 @@ const Wrapper = styled.div`
   }
   h3 {
     margin-bottom: 0;
-    
+    color: var(--clr-grey-5);
     font-weight: 400;
   }
 `;
@@ -130,4 +124,4 @@ const ErrorWrapper = styled.article`
     letter-spacing: var(--spacing);
   }
 `;
-export default Search;
+export default SearchRepo;
