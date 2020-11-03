@@ -32,8 +32,8 @@ const SearchRepo = () => {
       <form onSubmit={handleSubmit}>
          <div className='form-control'>
            <MdSearch/>
-           <input type='text' placeholder='enter guthub user' value={user} onChange={(e)=>setUser(e.target.value)}/>
-           <input type='text' placeholder='enter guthub repo' value={repo} onChange={(e)=>setRepo(e.target.value)}/>
+           <input type='text' placeholder='enter github user' value={user} onChange={(e)=>setUser(e.target.value)}/>
+           <input type='text' placeholder='enter github repo' value={repo} onChange={(e)=>setRepo(e.target.value)}/>
            {requests>0 && <button type='submit'>Search</button>}
         </div> 
       </form>  
@@ -124,4 +124,5 @@ const ErrorWrapper = styled.article`
     letter-spacing: var(--spacing);
   }
 `;
+
 export default SearchRepo;

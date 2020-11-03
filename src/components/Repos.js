@@ -5,7 +5,6 @@ import {  Pie3D, Column3D, Bar3D, Doughnut2D } from './Charts';
 
 
 
-
 const Repos = () => {
 const {repos} = React.useContext(GithubContext)
 
@@ -62,6 +61,7 @@ forks=Object.values(forks).slice(-5).reverse()
  console.log('sample')
   console.log(mostPop)
   // return <ExampleChart data={chartData}/>;
+
 
   return(
     <section className='section'>
