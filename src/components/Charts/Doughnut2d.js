@@ -11,7 +11,7 @@ import FusionCharts from "fusioncharts";
 import Chart from "fusioncharts/fusioncharts.charts";
 
 // Include the theme as fusion
-import FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
+import FusionTheme from "fusioncharts/themes/fusioncharts.theme.candy";
 
 // Adding the chart and theme as dependency to the core fusioncharts
 ReactFC.fcRoot(FusionCharts, Chart, FusionTheme);
@@ -21,8 +21,10 @@ const ChartComponent = ({data})=>{
   const chartConfigs = {
     type: "doughnut2d",
     width: "100%",
+     
     height: "400", 
     dataFormat: "json", 
+    "theme": "candy",
     dataSource: {
       // Chart Configuration
       chart: {
@@ -32,6 +34,7 @@ const ChartComponent = ({data})=>{
         subCaption: "Most popular languages used",
         //Set the x-axis name
         //Set the theme for your chart
+         "bgColor": "#1e1e30",
         decimals:0,
         doughnutRadius:'40%',
         showPercentValues:0,

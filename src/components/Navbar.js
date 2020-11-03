@@ -19,7 +19,7 @@ const Navbar = () => {
       {isUser && user.picture && <img src={user.picture} alt={user.name} />}
       {isUser && user.name && (
         <h4>
-          Welcome, <strong>{user.name.toUpperCase()}</strong>
+         <font color="white" >Welcome, <strong>{user.name.toUpperCase()}</strong></font>
         </h4>
       )}
       {isUser ? (
@@ -28,7 +28,7 @@ const Navbar = () => {
             logout({ returnTo: window.location.origin });
           }}
         >
-          logout
+          <font color="Red" ><b>Logout</b></font>
         </button>
       ) : (
         <button onClick={loginWithRedirect}>login</button>
@@ -43,7 +43,7 @@ const Navbar = () => {
 const Wrapper = styled.nav`
   padding: 1.5rem;
   margin-bottom: 4rem;
-  background: var(--clr-white);
+  background:#1e1e30;
   text-align: center;
   display: grid;
   grid-template-columns: auto auto 100px;

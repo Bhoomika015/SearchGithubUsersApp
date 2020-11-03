@@ -21,13 +21,16 @@ const ChartComponent = ({data})=>{
   const chartConfigs = {
     type: "column3d",
     width: "100%",
-    height: "400", 
+    height: "400",
+      
     dataFormat: "json", 
     dataSource: {
       // Chart Configuration
       chart: {
        
         caption: "Most popular Repos",
+         bgColor: "#1e1e30",
+        theme: "candy",
         yAxisName:'stars',
         xAxisName:'Repos',
         xAxisNameFontSize:'16px',
