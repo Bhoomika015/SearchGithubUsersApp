@@ -54,7 +54,7 @@ const Wrapper = styled.article`
     gap: 0.3rem 1rem;
     padding: 0.3rem rem;
      padding-top:1rem;
-
+    
   }
   article {
     transition: var(--transition);
@@ -64,6 +64,7 @@ const Wrapper = styled.article`
     grid-template-columns: auto 1fr;
     align-items: center;
     column-gap: 1rem;
+    
     img {
       height: 100%;
       width: 45px;
@@ -84,6 +85,7 @@ const Wrapper1 = styled.div`
   padding-top: 10rem;
   padding-left:21rem;
   padding-right:21rem;
+ 
   max-width:100%;
   gap: 3rem 5rem;
   @media (min-width: 992px) {
